@@ -1,0 +1,11 @@
+post_install() {
+    systemctl enable --now enable-wol
+}
+
+post_upgrade() {
+    post_install
+}
+
+post_remove() {
+    systemctl disable --now enable-wol
+}

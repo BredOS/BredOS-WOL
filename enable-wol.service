@@ -1,0 +1,13 @@
+[Unit]
+Description=Enable Wake-on-LAN on all Ethernet interfaces
+After=network-pre.target
+Before=network.target
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/enable-wol.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
